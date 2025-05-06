@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>MaskDataDoc.Activities</id>
-    <version>0.1.0.506113914</version>
+    <version>0.1.0.506170100</version>
     <authors>Company</authors>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <license type="expression">Apache-2.0</license>
@@ -12,7 +12,7 @@
     <description>This package was generated using the UiPath VS Extension.</description>
     <copyright>© 2022 Company</copyright>
     <tags>UiPath Activit𝗒</tags>
-    <repository type="git" commit="b48d5c47ce26f6d9e3e67e8d7263f11e269e7db2" />
+    <repository type="git" commit="d9a322386db77c795b1f58b23b15f37b8d26f460" />
     <dependencies>
       <group targetFramework="net6.0-windows7.0">
         <dependency id="DocumentFormat.OpenXml" version="2.19.0" exclude="Build,Analyzers" />

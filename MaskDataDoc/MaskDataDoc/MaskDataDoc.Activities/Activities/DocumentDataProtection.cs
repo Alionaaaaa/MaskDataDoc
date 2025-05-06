@@ -168,12 +168,20 @@ namespace MaskDataDoc.Activities
             {
                 content = Regex.Replace(content, @"\b([A-Z]{1,2}\d{2,3}[A-Z]{1,3})\b", "***###");
             }
-            
-            
+
+
             // Aplica mascare pentru nume simplificate
             if (MaskName)
             {
-                content = Regex.Replace(content, @"\b([A-Z][a-z]+)\s([A-Z][a-z]+)\b", "***** *****");
+
+                //string keywords = @"(?i)\b(?:împotriva|de la|de|familia|domnul|doamna|dna|dl|persoana|minorul|copilul|clientul|petentul|intimatul|reclamantul|pârâtul|beneficiarul|mandatarul|titularul|nume|prenume|cumpărător|vânzător|prestator|beneficiar|client|furnizor|reprezentant|instituție|societate|companie|persoană fizică|titular|director|administrator|angajat|utilizator|locator|mandatar|avocat|entitate|agenție|autoritate|întreprindere|firma|firmă|organization|company|buyer|seller|provider|contractor|representative|employee|manager|lawyer|agent|user|holder|customer)\b";
+                string keywords = @"(?i)\b(?:copilului)\b";
+
+                string namePattern = @"\s[:-–]?\s([A-ZĂÂÎȘȚ][\p{L}’'-]+(?:\s+[A-ZĂÂÎȘȚ][\p{L}’'-]+){0,2})";
+
+                string pattern = keywords + namePattern;
+                content = Regex.Replace(content, pattern, match => match.Value.Replace(match.Groups[1].Value, "***"));
+
             }
 
 
