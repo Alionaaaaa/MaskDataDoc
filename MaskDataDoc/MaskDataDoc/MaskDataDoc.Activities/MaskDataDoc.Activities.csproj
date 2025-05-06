@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net6.0</TargetFrameworks>
+		<RootNamespace>MaskDataDoc.Activities</RootNamespace>
+		<AssemblyName>MaskDataDoc.Activities</AssemblyName>
+    <PackageId>MaskDataDoc.Activities.Implementation</PackageId>
+	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <DocumentationFile>bin\$(Configuration)\MaskDataDoc.Activities.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+
+	  
+<PackageReference Include="DocumentFormat.OpenXml" Version="2.19.0" />
+	  <PackageReference Include="System.Activities.Metadata" Version="1.0.0-alpha004" PrivateAssets="All" />
+    <PackageReference Include="UiPath.Workflow.Runtime" Version="6.0.0-20220909-01" PrivateAssets="All" />
+    
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MaskDataDoc\MaskDataDoc.csproj" PrivateAssets="All" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.*.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="..\..\Shared\UiPath.Shared.Activities\UiPath.Shared.Activities.projitems" Label="Shared" />
+
+
+
+</Project>

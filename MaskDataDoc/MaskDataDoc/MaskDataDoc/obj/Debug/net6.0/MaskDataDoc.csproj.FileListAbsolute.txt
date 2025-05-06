@@ -1,0 +1,16 @@
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc\bin\Debug\net6.0\MaskDataDoc.deps.json
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc\bin\Debug\net6.0\MaskDataDoc.dll
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc\bin\Debug\net6.0\MaskDataDoc.pdb
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc\bin\Debug\net6.0\MaskDataDoc.xml
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc\obj\Debug\net6.0\MaskDataDoc.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc\obj\Debug\net6.0\MaskDataDoc.Properties.Resources.resources
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc\obj\Debug\net6.0\MaskDataDoc.csproj.GenerateResource.cache
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc\obj\Debug\net6.0\MaskDataDoc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc\obj\Debug\net6.0\MaskDataDoc.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc\obj\Debug\net6.0\MaskDataDoc.AssemblyInfo.cs
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc\obj\Debug\net6.0\MaskDataDoc.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc\obj\Debug\net6.0\MaskDataDoc.sourcelink.json
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc\obj\Debug\net6.0\MaskDataDoc.dll
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc\obj\Debug\net6.0\refint\MaskDataDoc.dll
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc\obj\Debug\net6.0\MaskDataDoc.pdb
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc\obj\Debug\net6.0\ref\MaskDataDoc.dll

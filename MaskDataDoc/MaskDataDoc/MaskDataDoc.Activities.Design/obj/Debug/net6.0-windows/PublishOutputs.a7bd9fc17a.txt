@@ -1,0 +1,8 @@
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc.Activities.Design\bin\Debug\net6.0-windows\publish\MaskDataDoc.Activities.Design.dll
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc.Activities.Design\bin\Debug\net6.0-windows\publish\MaskDataDoc.Activities.Design.pdb
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc.Activities.Design\bin\Debug\net6.0-windows\publish\DocumentFormat.OpenXml.dll
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc.Activities.Design\bin\Debug\net6.0-windows\publish\MaskDataDoc.Activities.dll
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc.Activities.Design\bin\Debug\net6.0-windows\publish\MaskDataDoc.Activities.pdb
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc.Activities.Design\bin\Debug\net6.0-windows\publish\MaskDataDoc.Activities.xml
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc.Activities.Design\bin\Debug\net6.0-windows\publish\MaskDataDoc.Activities.Design.xml
+C:\Users\User\source\repos\FinalRPA\MaskDataDoc\MaskDataDoc\MaskDataDoc.Activities.Design\bin\Debug\net6.0-windows\publish\MaskDataDoc.Activities.Design.deps.json

@@ -1,0 +1,63 @@
+{
+  "version": 2,
+  "dgSpecHash": "HCrq2BVCWLA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\User\\source\\repos\\FinalRPA\\MaskDataDoc\\MaskDataDoc\\MaskDataDoc.Activities.Design\\MaskDataDoc.Activities.Design.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\documentformat.openxml\\2.19.0\\documentformat.openxml.2.19.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.codeanalysis.common\\4.5.0-2.22527.10\\microsoft.codeanalysis.common.4.5.0-2.22527.10.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.codeanalysis.csharp\\4.5.0-2.22527.10\\microsoft.codeanalysis.csharp.4.5.0-2.22527.10.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.codeanalysis.csharp.scripting\\4.5.0-2.22527.10\\microsoft.codeanalysis.csharp.scripting.4.5.0-2.22527.10.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.codeanalysis.scripting.common\\4.5.0-2.22527.10\\microsoft.codeanalysis.scripting.common.4.5.0-2.22527.10.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.codeanalysis.visualbasic\\4.5.0-2.22527.10\\microsoft.codeanalysis.visualbasic.4.5.0-2.22527.10.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.powerfx.core\\0.2.1-preview\\microsoft.powerfx.core.0.2.1-preview.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.powerfx.interpreter\\0.2.1-preview\\microsoft.powerfx.interpreter.0.2.1-preview.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.powerfx.transport.attributes\\0.2.1-preview\\microsoft.powerfx.transport.attributes.0.2.1-preview.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nito.asyncex.tasks\\5.1.2\\nito.asyncex.tasks.5.1.2.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nito.disposables\\2.2.1\\nito.disposables.2.2.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\reflectionmagic\\4.1.0\\reflectionmagic.4.1.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.activities.core.presentation\\1.0.0-alpha004\\system.activities.core.presentation.1.0.0-alpha004.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.activities.metadata\\1.0.0-alpha004\\system.activities.metadata.1.0.0-alpha004.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.codedom\\6.0.0\\system.codedom.6.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.componentmodel.composition\\4.7.0\\system.componentmodel.composition.4.7.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.diagnostics.eventlog\\4.7.0\\system.diagnostics.eventlog.4.7.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.reflection.metadata\\5.0.0\\system.reflection.metadata.5.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\uipath.workflow\\6.0.0-20230616-03\\uipath.workflow.6.0.0-20230616-03.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\uipath.workflow.runtime\\6.0.0-20230707-03\\uipath.workflow.runtime.6.0.0-20230707-03.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "MaskDataDoc.Activities depends on UiPath.Workflow (>= 6.0.0-20220909-01) but UiPath.Workflow 6.0.0-20220909-01 was not found. UiPath.Workflow 6.0.0-20230616-03 was resolved instead.",
+      "libraryId": "UiPath.Workflow",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "UiPath.Workflow 6.0.0-20230616-03 depends on UiPath.Workflow.Runtime (>= 6.0.0-20230616-03) but UiPath.Workflow.Runtime 6.0.0-20230616-03 was not found. UiPath.Workflow.Runtime 6.0.0-20230707-03 was resolved instead.",
+      "libraryId": "UiPath.Workflow.Runtime",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
+}
