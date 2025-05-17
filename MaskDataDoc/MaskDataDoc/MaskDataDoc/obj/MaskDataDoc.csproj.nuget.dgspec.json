@@ -34,11 +34,7 @@
           "C:\\Users\\User\\source\\repos\\rpaFinalProj\\DocDataProtect\\DocDataProtect\\DocDataProtect.Activities.Design\\bin\\Debug": {},
           "C:\\Users\\User\\source\\repos\\rpa\\DocumentDataProtectionActivity\\DocumentDataProtectionActivity\\DocumentDataProtectionActivity.Activities.Design\\bin\\Debug": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.org/api/v2/": {},
-          "https://www.myget.org/F/uipath/": {},
-          "https://www.myget.org/F/uipath/": {},
-          "https://www.myget.org/F/uipath/api/v3/index.json": {},
-          "https://www.myget.org/F/workflow/api/v3/index.json": {}
+          "https://nuget.org/api/v2/": {}
         },
         "frameworks": {
           "net6.0": {
@@ -83,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }

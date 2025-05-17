@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCopyrightAttribute("© 2022 Company")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("This package was generated using the UiPath VS Extension.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9a322386db77c795b1f58b23b15f37b8d26f460")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c86b72e69e1c4a645a7d02fedfedf173efdf7e62")]
 [assembly: System.Reflection.AssemblyProductAttribute("MaskDataDoc.Activities.Design")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MaskDataDoc.Activities.Design")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

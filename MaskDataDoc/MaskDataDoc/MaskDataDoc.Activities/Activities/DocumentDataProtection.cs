@@ -12,6 +12,8 @@ using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using System.Linq;
+using System.Collections.Generic;
+using System.Text;
 
 namespace MaskDataDoc.Activities
 {
@@ -89,22 +91,47 @@ namespace MaskDataDoc.Activities
                 case ".docx":
                     using (MemoryStream mem = new MemoryStream())
                     {
-                        // Copiem fișierul sursă în memorie pentru a putea lucra pe o copie
+                        // Citim fișierul original în memorie
                         using (FileStream fileStream = new FileStream(inputFilePath, FileMode.Open, FileAccess.Read))
                         {
                             fileStream.CopyTo(mem);
                         }
 
+                        mem.Position = 0;
                         using (WordprocessingDocument wordDoc = WordprocessingDocument.Open(mem, true))
                         {
                             var body = wordDoc.MainDocumentPart.Document.Body;
-                            foreach (var para in body.Elements<Paragraph>())
+
+                            // Procesăm fiecare paragraf separat
+                            foreach (var paragraph in body.Elements<DocumentFormat.OpenXml.Wordprocessing.Paragraph>())
                             {
-                                foreach (var run in para.Elements<Run>())
+                                var textElements = paragraph.Descendants<DocumentFormat.OpenXml.Wordprocessing.Text>().ToList();
+
+                                // Concatenăm tot textul din paragraf
+                                var paragraphText = string.Concat(textElements.Select(te => te.Text));
+
+                                // Aplicăm mascarea textului pe paragraf
+                                string maskedParagraphText = ApplyMasking(paragraphText);
+
+                                // Reconstruim textul înapoi în elementele <w:t>
+                                int currentIndex = 0;
+                                foreach (var textElem in textElements)
                                 {
-                                    foreach (var text in run.Elements<Text>())
+                                    int length = textElem.Text.Length;
+                                    if (currentIndex + length <= maskedParagraphText.Length)
                                     {
-                                        text.Text = ApplyMasking(text.Text);
+                                        textElem.Text = maskedParagraphText.Substring(currentIndex, length);
+                                        currentIndex += length;
+                                    }
+                                    else if (currentIndex < maskedParagraphText.Length)
+                                    {
+                                        textElem.Text = maskedParagraphText.Substring(currentIndex);
+                                        currentIndex = maskedParagraphText.Length;
+                                    }
+                                    else
+                                    {
+                                        // Dacă am terminat textul mascat, restul elementelor devin goale
+                                        textElem.Text = "";
                                     }
                                 }
                             }
@@ -112,20 +139,23 @@ namespace MaskDataDoc.Activities
                             wordDoc.MainDocumentPart.Document.Save();
                         }
 
-                        // Scriem rezultatul modificat în fișierul de output
+                        // Salvăm fișierul modificat în outputPath
                         await File.WriteAllBytesAsync(outputPath, mem.ToArray(), cancellationToken);
                     }
                     break;
+
             }
         }
 
+
+
         private string ApplyMasking(string content)
         {
-            // Definim un pattern pentru numerele de dosar, cum ar fi '2-3922/21'
-            string dosarPattern = @"\b\d{1,2}-\d{1,4}\/\d{2}\b";
+            //// Definim un pattern pentru numerele de dosar, cum ar fi '2-3922/21'
+            //string dosarPattern = @"\b\d{1,2}-\d{1,4}\/\d{2}\b";
 
-            // Nu aplica mascare pe numerele de dosar
-            content = Regex.Replace(content, dosarPattern, match => match.Value);
+            //// Nu aplica mascare pe numerele de dosar
+            //content = Regex.Replace(content, dosarPattern, match => match.Value);
 
             // Aplica mascare pentru CNP
             if (MaskCNP)
@@ -170,32 +200,96 @@ namespace MaskDataDoc.Activities
             }
 
 
-            // Aplica mascare pentru nume simplificate
+
+
             if (MaskName)
             {
+                var sensitiveRoles = new List<string>
+    {
+         "reclamant", "reclamantul", "reclamantei", "pârât", "pârâtul", "pârâtei",
+            "intervenient", "intervenientul", "petent", "petentul", "contestator", "contestatorul",
+            "apelant", "apelantul", "intimat", "intimatul", "inculpat", "inculpatul", "învinuit",
+            "suspect", "condamnat", "persoana vătămată", "minor", "copil","copilului","copiilor","familia", "părintele", "soț", "soția",
+            "moștenitor", "debitor", "creditor", "titular", "beneficiar", "pacient", "angajat",
+            "salariat", "proprietar", "cetățean", "persoană fizică", "fiul", "fiica", "rudă", "împotriva"
+    };
 
-                //string keywords = @"(?i)\b(?:împotriva|de la|de|familia|domnul|doamna|dna|dl|persoana|minorul|copilul|clientul|petentul|intimatul|reclamantul|pârâtul|beneficiarul|mandatarul|titularul|nume|prenume|cumpărător|vânzător|prestator|beneficiar|client|furnizor|reprezentant|instituție|societate|companie|persoană fizică|titular|director|administrator|angajat|utilizator|locator|mandatar|avocat|entitate|agenție|autoritate|întreprindere|firma|firmă|organization|company|buyer|seller|provider|contractor|representative|employee|manager|lawyer|agent|user|holder|customer)\b";
-                string keywords = @"(?i)\b(?:copilului)\b";
-
-                string namePattern = @"\s[:-–]?\s([A-ZĂÂÎȘȚ][\p{L}’'-]+(?:\s+[A-ZĂÂÎȘȚ][\p{L}’'-]+){0,2})";
-
-                string pattern = keywords + namePattern;
-                content = Regex.Replace(content, pattern, match => match.Value.Replace(match.Groups[1].Value, "***"));
-
+                foreach (var role in sensitiveRoles)
+                {
+                    string pattern = $@"\b{role}\s+([A-ZĂÂÎȘȚ][a-zăâîșțéëäöü]+)\s+([A-ZĂÂÎȘȚ][a-zăâîșțéëäöü]+)";
+                    content = Regex.Replace(content, pattern, m =>
+                    {
+                        string prenume = m.Groups[1].Value;
+                        string initiala = !string.IsNullOrEmpty(prenume) ? prenume[0] + "." : "";
+                        return $"{role} {initiala} *****";
+                    }, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+                }
             }
 
 
 
-            // Aplica mascare pentru adresă (simplificată)
+
+
             if (MaskAddress)
             {
-                content = Regex.Replace(content, @"(\d{1,5}\s[A-Za-z]+\s[A-Za-z]+)", "*****");
+                var sensitiveAddressTerms = new List<string>
+    {
+                    // Formulări generale
+    "cu domiciliul în",
+    "domiciliul",
+    "locuiește în",
+    "adresa",
+    "cu reședința în",
+    "reședința",
+    "residence at",
+    "locația",
+    "domiciliu",
+    "reședință",
+
+    // Termeni specifici de adresă
+    "strada",
+    "str.",
+    "bd.",
+    "bulevardul",
+    "aleea",
+    "nr.",
+    "numărul",
+    "bloc",
+    "apartament",
+    "etaj",
+    "scara",
+    "cartier",
+    "localitate",
+    "oraș",
+    "municipiu",
+    "sat"
+    };
+
+                foreach (var term in sensitiveAddressTerms)
+                {
+                    // Pattern care găsește termnul urmat de unul sau mai multe cuvinte ce reprezintă adresa
+                    // Exemplu: "strada Mihail Kogălniceanu 10", "bd. Republicii 5A"
+                    string pattern = $@"\b{term}\s+([\wăâîșțĂÂÎȘȚ\d\-\/]+(\s+[\wăâîșțĂÂÎȘȚ\d\-\/]+){{0,4}})";
+
+                    content = Regex.Replace(content, pattern, m =>
+                    {
+                        // m.Groups[1] este partea care conține adresa, o mascăm complet cu ***
+                        return $"{term} ***";
+                    }, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+                }
             }
+
+
+
+
+
+
 
             // Aplica mascare pentru data nașterii
             if (MaskDateOfBirth)
             {
-                content = Regex.Replace(content, @"\b\d{1,2}[-./]?\d{1,2}[-./]?\d{4}\b", "**.**.****");
+                content = Regex.Replace(content, @"\b(0?[1-9]|[12][0-9]|3[01])[-./](0?[1-9]|1[012])[-./](19|20)\d\d\b", "**.**.****");
+
             }
 
             return content;

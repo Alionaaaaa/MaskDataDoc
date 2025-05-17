@@ -43,31 +43,32 @@
                 </sapv:ExpressionTextBox.Expression>
             </sapv:ExpressionTextBox>
 
-            <!-- Options (SensitiveDataOptions) -->
-            <!-- <Label Content="{x:Static activity:Resources.DocumentDataProtection_Options_DisplayName}" Grid.Row="2"
-                   ToolTip="{x:Static activity:Resources.DocumentDataProtection_Options_Description}"/>-->
+
+            <Label Grid.Row="2"
+                 Content="Sensitive Data Options:"
+                   Margin="0,10,0,5"/>
+
 
             <!-- Checkboxes for each SensitiveDataOption -->
             <StackPanel Grid.Row="3" Orientation="Vertical">
-                <CheckBox Content="Mask Name" 
+                <CheckBox Content="Name" 
               IsChecked="{Binding ModelItem.MaskName}" />
-                <CheckBox Content="Mask Address" 
+                <CheckBox Content="Address" 
               IsChecked="{Binding ModelItem.MaskAddress}" />
-                <CheckBox Content="Mask Date of Birth" 
+                <CheckBox Content="Date of Birth" 
               IsChecked="{Binding ModelItem.MaskDateOfBirth}" />
-                <CheckBox Content="Mask Email" 
+                <CheckBox Content="Email" 
               IsChecked="{Binding ModelItem.MaskEmail}" />
-                <CheckBox Content="Mask Phone"
+                <CheckBox Content="Phone"
               IsChecked="{Binding ModelItem.MaskPhone}" />
-                <CheckBox Content="Mask Password"
+                <CheckBox Content="Password"
               IsChecked="{Binding ModelItem.MaskPassword}" />
-                <CheckBox Content="Mask IBAN"
-              IsChecked="{Binding ModelItem.MaskIBAN}" />
-                <CheckBox Content="Mask Credit Card"
+
+                <CheckBox Content="Credit Card"
               IsChecked="{Binding ModelItem.MaskCreditCard}" />
-                <CheckBox Content="Mask License Plate"
+                <CheckBox Content="License Plate"
               IsChecked="{Binding ModelItem.MaskLicensePlate}" />
-                <CheckBox Content="Mask CNP"
+                <CheckBox Content="CNP"
               IsChecked="{Binding ModelItem.MaskCNP}" />
             </StackPanel>
 
