@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\FinalRPA\\MaskDataDoc\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7ABEED34-D95A-435E-8C72-972932F9E598}|MaskDataDoc\\MaskDataDoc.Activities\\MaskDataDoc.Activities.csproj|c:\\users\\user\\source\\repos\\finalrpa\\maskdatadoc\\maskdatadoc\\maskdatadoc.activities\\activities\\documentdataprotection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7ABEED34-D95A-435E-8C72-972932F9E598}|MaskDataDoc\\MaskDataDoc.Activities\\MaskDataDoc.Activities.csproj|solutionrelative:maskdatadoc\\maskdatadoc.activities\\activities\\documentdataprotection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{17519E49-29DE-481F-83B7-507CD9E87E26}|MaskDataDoc\\MaskDataDoc.Activities.Design\\MaskDataDoc.Activities.Design.csproj|c:\\users\\user\\source\\repos\\finalrpa\\maskdatadoc\\maskdatadoc\\maskdatadoc.activities.design\\designers\\documentdataprotectiondesigner.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{17519E49-29DE-481F-83B7-507CD9E87E26}|MaskDataDoc\\MaskDataDoc.Activities.Design\\MaskDataDoc.Activities.Design.csproj|solutionrelative:maskdatadoc\\maskdatadoc.activities.design\\designers\\documentdataprotectiondesigner.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ABEED34-D95A-435E-8C72-972932F9E598}|MaskDataDoc\\MaskDataDoc.Activities\\MaskDataDoc.Activities.csproj|c:\\users\\user\\source\\repos\\finalrpa\\maskdatadoc\\maskdatadoc\\maskdatadoc.activities\\activities\\documentdataprotection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ABEED34-D95A-435E-8C72-972932F9E598}|MaskDataDoc\\MaskDataDoc.Activities\\MaskDataDoc.Activities.csproj|solutionrelative:maskdatadoc\\maskdatadoc.activities\\activities\\documentdataprotection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,25 +26,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "DocumentDataProtectionDesigner.xaml",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\FinalRPA\\MaskDataDoc\\MaskDataDoc\\MaskDataDoc.Activities.Design\\Designers\\DocumentDataProtectionDesigner.xaml",
               "RelativeDocumentMoniker": "MaskDataDoc\\MaskDataDoc.Activities.Design\\Designers\\DocumentDataProtectionDesigner.xaml",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\FinalRPA\\MaskDataDoc\\MaskDataDoc\\MaskDataDoc.Activities.Design\\Designers\\DocumentDataProtectionDesigner.xaml",
-              "RelativeToolTip": "MaskDataDoc\\MaskDataDoc.Activities.Design\\Designers\\DocumentDataProtectionDesigner.xaml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\FinalRPA\\MaskDataDoc\\MaskDataDoc\\MaskDataDoc.Activities.Design\\Designers\\DocumentDataProtectionDesigner.xaml*",
+              "RelativeToolTip": "MaskDataDoc\\MaskDataDoc.Activities.Design\\Designers\\DocumentDataProtectionDesigner.xaml*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-05-19T09:55:12.151Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DocumentDataProtection.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\FinalRPA\\MaskDataDoc\\MaskDataDoc\\MaskDataDoc.Activities\\Activities\\DocumentDataProtection.cs",
               "RelativeDocumentMoniker": "MaskDataDoc\\MaskDataDoc.Activities\\Activities\\DocumentDataProtection.cs",
               "ToolTip": "C:\\Users\\User\\source\\repos\\FinalRPA\\MaskDataDoc\\MaskDataDoc\\MaskDataDoc.Activities\\Activities\\DocumentDataProtection.cs",
               "RelativeToolTip": "MaskDataDoc\\MaskDataDoc.Activities\\Activities\\DocumentDataProtection.cs",
-              "ViewState": "AgIAANAAAAAAAAAAAAAAAOIAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAMAAAAAAAAAAAAAqwNIAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-06T11:58:52.779Z",
               "EditorCaption": ""

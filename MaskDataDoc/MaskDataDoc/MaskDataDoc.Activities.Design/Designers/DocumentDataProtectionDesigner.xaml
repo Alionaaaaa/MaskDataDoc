@@ -90,10 +90,10 @@
               IsChecked="{Binding ModelItem.MaskAddress}" />
                 <CheckBox Content="Date of birth" 
               IsChecked="{Binding ModelItem.MaskDateOfBirth}" />
-                <CheckBox Content="IDNP"
+                <CheckBox Content="IDNP "
               IsChecked="{Binding ModelItem.MaskCNP}" />
 
-                <CheckBox Content="Email " 
+                <CheckBox Content="Email address" 
               IsChecked="{Binding ModelItem.MaskEmail}" />
                 <CheckBox Content="Phone number"
               IsChecked="{Binding ModelItem.MaskPhone}" />

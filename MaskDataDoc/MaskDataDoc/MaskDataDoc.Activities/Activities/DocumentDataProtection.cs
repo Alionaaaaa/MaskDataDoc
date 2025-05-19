@@ -208,7 +208,14 @@ namespace MaskDataDoc.Activities
             // Aplica mascare pentru numere de telefon
             if (MaskPhone)
             {
-                content = Regex.Replace(content, @"(\+40\s?)?(\(?\d{2,3}\)?[\s\-]?)?\d{3}[\s\-]?\d{3}[\s\-]?\d{3}", "+40 *** *** ***");
+                content = Regex.Replace(
+                content,
+                @"(\+373\s?|0)(\d{2})[\s\-]?\d{3}[\s\-]?\d{3}",
+                m =>
+                {
+                    string prefix = m.Groups[1].Value + m.Groups[2].Value;
+                    return prefix + " *** ***";
+                });
             }
 
             // Aplica mascare pentru parole
