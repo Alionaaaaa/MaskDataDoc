@@ -34,14 +34,47 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <!-- InputFilePath -->
-            <Label Content="{x:Static activity:Resources.DocumentDataProtection_InputFilePath_DisplayName}" Grid.Row="0"
-                   ToolTip="{x:Static activity:Resources.DocumentDataProtection_InputFilePath_Description}"/>
-            <sapv:ExpressionTextBox Grid.Row="1" ExpressionType="{Binding ModelItem.Properties[InputFilePath].PropertyType.GenericTypeArguments[0]}" OwnerActivity="{Binding Path=ModelItem}" HintText="{x:Static activity:Resources.DocumentDataProtection_InputFilePath_Description}" UseLocationExpression="False">
-                <sapv:ExpressionTextBox.Expression>
-                    <Binding Path="ModelItem.InputFilePath" Converter="{StaticResource ArgumentToExpressionConverter}" Mode="TwoWay" ConverterParameter="In" UpdateSourceTrigger="PropertyChanged" />
-                </sapv:ExpressionTextBox.Expression>
-            </sapv:ExpressionTextBox>
+            
+            
+            
+            <Label Grid.Row="0"
+       Content="{x:Static activity:Resources.DocumentDataProtection_InputFilePath_DisplayName}"
+       ToolTip="{x:Static activity:Resources.DocumentDataProtection_InputFilePath_Description}"
+       Margin="0,0,0,5"/>
+
+            <Grid Grid.Row="1" Margin="0,0,0,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- ExpressionTextBox pentru input path -->
+                <sapv:ExpressionTextBox Grid.Column="0"
+                             ExpressionType="{Binding ModelItem.Properties[InputFilePath].PropertyType.GenericTypeArguments[0]}"
+                             OwnerActivity="{Binding Path=ModelItem}"
+                             HintText="{x:Static activity:Resources.DocumentDataProtection_InputFilePath_Description}"
+                             UseLocationExpression="False"
+                             Margin="0,0,5,0">
+                    <sapv:ExpressionTextBox.Expression>
+                        <Binding Path="ModelItem.InputFilePath"
+                     Converter="{StaticResource ArgumentToExpressionConverter}"
+                     Mode="TwoWay"
+                     ConverterParameter="In"
+                     UpdateSourceTrigger="PropertyChanged" />
+                    </sapv:ExpressionTextBox.Expression>
+                </sapv:ExpressionTextBox>
+
+                <!-- Browse button -->
+                <Button Grid.Column="1"
+            Content="Browse..."
+            Padding="5,2"
+            VerticalAlignment="Center"
+            Click="BrowseButton_Click"/>
+            </Grid>
+
+
+
+
 
 
             <Label Grid.Row="2"
@@ -55,20 +88,22 @@
               IsChecked="{Binding ModelItem.MaskName}" />
                 <CheckBox Content="Address" 
               IsChecked="{Binding ModelItem.MaskAddress}" />
-                <CheckBox Content="Date of Birth" 
+                <CheckBox Content="Date of birth" 
               IsChecked="{Binding ModelItem.MaskDateOfBirth}" />
                 <CheckBox Content="Email" 
               IsChecked="{Binding ModelItem.MaskEmail}" />
-                <CheckBox Content="Phone"
+                <CheckBox Content="Phone number"
               IsChecked="{Binding ModelItem.MaskPhone}" />
                 <CheckBox Content="Password"
               IsChecked="{Binding ModelItem.MaskPassword}" />
-
-                <CheckBox Content="Credit Card"
+                <!--<CheckBox Content="IBAN" 
+              IsChecked="{Binding ModelItem.MaskIBAN}" />-->
+                
+                <CheckBox Content="Credit card"
               IsChecked="{Binding ModelItem.MaskCreditCard}" />
-                <CheckBox Content="License Plate"
+                <CheckBox Content="License plate"
               IsChecked="{Binding ModelItem.MaskLicensePlate}" />
-                <CheckBox Content="CNP"
+                <CheckBox Content="IDNP"
               IsChecked="{Binding ModelItem.MaskCNP}" />
             </StackPanel>
 

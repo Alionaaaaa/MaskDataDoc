@@ -10,7 +10,7 @@ namespace MaskDataDoc.Activities.Enums
     public enum SensitiveDataOptions
     {
         None = 0,
-        CNP = 1,
+        IDNP = 1,
         Email = 2,
         Phone = 4,
         Password = 8,

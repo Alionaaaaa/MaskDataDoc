@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MaskDataDoc</name>
+    </assembly>
+    <members>
+        <member name="T:MaskDataDoc.IObjectContainer">
+            <summary>
+            A simple container for objects meant to be shared accross the application space.
+            </summary>
+        </member>
+        <member name="M:MaskDataDoc.IObjectContainer.Add``1(``0)">
+            <summary>
+            Stores a reference to an object.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="objectToAdd"></param>
+        </member>
+        <member name="M:MaskDataDoc.IObjectContainer.Get``1">
+            <summary>
+            Gets the object.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:MaskDataDoc.IObjectContainer.Where(System.Func{System.Object,System.Boolean})">
+             <summary>
+            
+             </summary>
+             <param name="filter"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MaskDataDoc.IObjectContainer.Remove``1">
+             <summary>
+            
+             </summary>
+             <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:MaskDataDoc.IObjectContainer.Contains``1">
+            <summary>
+            Determines whether this instance contains the object.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns>
+            <c>true</c> if this instance contains object; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:MaskDataDoc.IObjectContainer.Clear">
+            <summary>
+            Clears this instance.
+            </summary>
+        </member>
+        <member name="T:MaskDataDoc.ObjectContainer">
+            <summary>
+            A simple container for objects meant to be shared accross the application space.
+            </summary>
+        </member>
+        <member name="F:MaskDataDoc.ObjectContainer._objectHolder">
+            <summary>
+            Gets the object holder.
+            </summary>
+            <value>
+            The object holder.
+            </value>
+        </member>
+        <member name="M:MaskDataDoc.ObjectContainer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MaskDataDoc.ObjectContainer" /> class.
+            </summary>
+        </member>
+        <member name="M:MaskDataDoc.ObjectContainer.Add``1(``0)">
+            <summary>
+            Stores a reference to a object.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="object"></param>
+        </member>
+        <member name="M:MaskDataDoc.ObjectContainer.Get``1">
+            <summary>
+            Gets the object.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:MaskDataDoc.ObjectContainer.Where(System.Func{System.Object,System.Boolean})">
+             <summary>
+            
+             </summary>
+             <param name="filter"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MaskDataDoc.ObjectContainer.Remove``1">
+            <summary>
+            Remove a object from the container
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:MaskDataDoc.ObjectContainer.Contains``1">
+            <summary>
+            Determines whether this instance contains the object.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns>
+              <c>true</c> if this instance contains object; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:MaskDataDoc.ObjectContainer.Clear">
+            <summary>
+            Clears this instance.
+            </summary>
+        </member>
+        <member name="T:MaskDataDoc.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MaskDataDoc.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MaskDataDoc.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -151,13 +151,9 @@ namespace MaskDataDoc.Activities
 
         private string ApplyMasking(string content)
         {
-            //// Definim un pattern pentru numerele de dosar, cum ar fi '2-3922/21'
-            //string dosarPattern = @"\b\d{1,2}-\d{1,4}\/\d{2}\b";
+            
 
-            //// Nu aplica mascare pe numerele de dosar
-            //content = Regex.Replace(content, dosarPattern, match => match.Value);
-
-            // Aplica mascare pentru CNP
+            // Aplica mascare pentru CNP/IDNP
             if (MaskCNP)
             {
                 content = Regex.Replace(content, @"\b\d{13}\b", "*******#######");
@@ -213,6 +209,8 @@ namespace MaskDataDoc.Activities
             "moștenitor", "debitor", "creditor", "titular", "beneficiar", "pacient", "angajat",
             "salariat", "proprietar", "cetățean", "persoană fizică", "fiul", "fiica", "rudă", "împotriva"
     };
+                // Dicționar pentru a reține numele deja mascate
+                var maskedNames = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
                 foreach (var role in sensitiveRoles)
                 {
@@ -220,67 +218,101 @@ namespace MaskDataDoc.Activities
                     content = Regex.Replace(content, pattern, m =>
                     {
                         string prenume = m.Groups[1].Value;
-                        string initiala = !string.IsNullOrEmpty(prenume) ? prenume[0] + "." : "";
-                        return $"{role} {initiala} *****";
+                        string nume = m.Groups[2].Value;
+                        string fullName = $"{prenume} {nume}";
+
+                        if (!maskedNames.ContainsKey(fullName))
+                        {
+                            string initiala = !string.IsNullOrEmpty(prenume) ? prenume[0] + "." : "";
+                            maskedNames[fullName] = $"{initiala} *****";
+                        }
+
+                        return $"{role} {maskedNames[fullName]}";
                     }, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
                 }
+
+                // Înlocuiește toate aparițiile numelor mascate în tot textul
+                foreach (var entry in maskedNames)
+                {
+                    string fullName = Regex.Escape(entry.Key);
+                    string masked = entry.Value;
+                    content = Regex.Replace(content, $@"\b{fullName}\b", masked, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+                }
             }
-
-
 
 
 
             if (MaskAddress)
             {
-                var sensitiveAddressTerms = new List<string>
+                var keywords = new List<string>
     {
-                    // Formulări generale
-    "cu domiciliul în",
-    "domiciliul",
-    "locuiește în",
-    "adresa",
-    "cu reședința în",
-    "reședința",
-    "residence at",
-    "locația",
-    "domiciliu",
-    "reședință",
-
-    // Termeni specifici de adresă
-    "strada",
-    "str.",
-    "bd.",
-    "bulevardul",
-    "aleea",
-    "nr.",
-    "numărul",
-    "bloc",
-    "apartament",
-    "etaj",
-    "scara",
-    "cartier",
-    "localitate",
-    "oraș",
-    "municipiu",
-    "sat"
+        "cu domiciliul în",
+        "domiciliul în",
+        "domiciliul",
+        "locuiește în",
+        "adresa",
+        "cu reședința în",
+        "reședința",
+        "residence at",
+        "locația",
+        "domiciliu",
+        "reședință",
+        "strada",
+        "str.",
+        "bd.",
+        "bulevardul",
+        "aleea",
+        "nr.",
+        "numărul",
+        "bloc",
+        "apartament",
+        "ap.",
+        "etaj",
+        "scara",
+        "cartier",
+        "localitate",
+        "oraș",
+        "municipiu",
+        "sat"
     };
 
-                foreach (var term in sensitiveAddressTerms)
-                {
-                    // Pattern care găsește termnul urmat de unul sau mai multe cuvinte ce reprezintă adresa
-                    // Exemplu: "strada Mihail Kogălniceanu 10", "bd. Republicii 5A"
-                    string pattern = $@"\b{term}\s+([\wăâîșțĂÂÎȘȚ\d\-\/]+(\s+[\wăâîșțĂÂÎȘȚ\d\-\/]+){{0,4}})";
+                var positions = new List<(int Index, int Length)>();
 
-                    content = Regex.Replace(content, pattern, m =>
+                foreach (var keyword in keywords)
+                {
+                    var matches = Regex.Matches(content, Regex.Escape(keyword), RegexOptions.IgnoreCase);
+                    foreach (Match match in matches)
                     {
-                        // m.Groups[1] este partea care conține adresa, o mascăm complet cu ***
-                        return $"{term} ***";
-                    }, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+                        positions.Add((match.Index, match.Length));
+                    }
+                }
+
+                if (positions.Count >= 2)
+                {
+                    // Sortează pozițiile după index
+                    positions = positions.OrderBy(p => p.Index).ToList();
+
+                    var first = positions.First();
+                    var last = positions.Last();
+
+                    int maskStart = first.Index + first.Length;
+
+                    int searchPos = last.Index + last.Length;
+
+                    // Găsește poziția primei virgule după ultimul keyword
+                    int commaPos = content.IndexOf(',', searchPos);
+
+                    // Dacă găsește virgulă, maschează până în fața ei; altfel până la sfârșit
+                    int maskEnd = commaPos != -1 ? commaPos : content.Length;
+
+                    int length = maskEnd - maskStart;
+                    if (length > 0)
+                    {
+                        string mask = new string('*', length);
+                        content = content.Substring(0, maskStart) + mask + content.Substring(maskEnd);
+                    }
                 }
             }
-
-
-
 
 
 
