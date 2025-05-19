@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MaskDataDoc.Activities")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd25b8ee18ca6126b30a8564ac54bf72c2504173")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0514e7909ebfa99b3107fcb3f6747a94d59804e2")]
 [assembly: System.Reflection.AssemblyProductAttribute("MaskDataDoc.Activities")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MaskDataDoc.Activities")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

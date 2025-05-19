@@ -38,16 +38,56 @@ namespace MaskDataDoc.Activities
         [LocalizedCategory(nameof(Resources.Input_Category))]
         public InArgument<string> InputFilePath { get; set; }
 
-        public bool MaskEmail { get; set; }
-        public bool MaskPhone { get; set; }
-        public bool MaskPassword { get; set; }
-        public bool MaskIBAN { get; set; }
-        public bool MaskCreditCard { get; set; }
-        public bool MaskLicensePlate { get; set; }
+        [Category("Mask Options")]
+        [DisplayName("Name")]
+        [Description("Mask personal names in the document.")]
+        public bool MaskName { get; set; }
+
+        [Category("Mask Options")]
+        [DisplayName("Address")]
+        [Description("Mask physical or mailing addresses.")]
+        public bool MaskAddress { get; set; }
+
+        [Category("Mask Options")]
+        [DisplayName("Date of Birth")]
+        [Description("Mask birth dates (e.g., 01/01/2000).")]
+        public bool MaskDateOfBirth { get; set; }
+
+        [Category("Mask Options")]
+        [DisplayName("IDNP")]
+        [Description("Mask Moldovan Personal Numeric Code (IDNP).")]
         public bool MaskCNP { get; set; }
-        public bool MaskName { get; set; }  // Added for Name masking
-        public bool MaskAddress { get; set; }  // Added for Address masking
-        public bool MaskDateOfBirth { get; set; }  // Added for Date of Birth masking
+
+        [Category("Mask Options")]
+        [DisplayName("Email")]
+        [Description("Mask email addresses in the document (e.g., user@example.com).")]
+        public bool MaskEmail { get; set; }
+
+        [Category("Mask Options")]
+        [DisplayName("Phone Number")]
+        [Description("Mask phone numbers in the document (e.g., 0712345678).")]
+        public bool MaskPhone { get; set; }
+
+        [Category("Mask Options")]
+        [DisplayName("Password")]
+        [Description("Mask passwords found in the document.")]
+        public bool MaskPassword { get; set; }
+
+        [Category("Mask Options")]
+        [DisplayName("IBAN")]
+        [Description("Mask IBANs (International Bank Account Numbers).")]
+        public bool MaskIBAN { get; set; }
+
+        [Category("Mask Options")]
+        [DisplayName("Credit Card")]
+        [Description("Mask credit card numbers (e.g., 1234-****-****-5678).")]
+        public bool MaskCreditCard { get; set; }
+
+        [Category("Mask Options")]
+        [DisplayName("License Plate")]
+        [Description("Mask vehicle license plate numbers.")]
+        public bool MaskLicensePlate { get; set; }
+
 
         [LocalizedDisplayName(nameof(Resources.DocumentDataProtection_OutputFilePath_DisplayName))]
         [LocalizedDescription(nameof(Resources.DocumentDataProtection_OutputFilePath_Description))]
@@ -147,7 +187,7 @@ namespace MaskDataDoc.Activities
             }
         }
 
-
+        
 
         private string ApplyMasking(string content)
         {
@@ -180,7 +220,10 @@ namespace MaskDataDoc.Activities
             // Aplica mascare pentru IBAN
             if (MaskIBAN)
             {
-                content = Regex.Replace(content, @"\bRO\d{2}[A-Z]{4}\d{16}\b", "RO** **** **** **** **** ****");
+                content = Regex.Replace(
+                    content,
+                    @"\bMD\d{2}[A-Z0-9]{18}\b",
+                    "MD** ******************");
             }
 
             // Aplica mascare pentru carduri de credit
@@ -205,9 +248,10 @@ namespace MaskDataDoc.Activities
          "reclamant", "reclamantul", "reclamantei", "pârât", "pârâtul", "pârâtei",
             "intervenient", "intervenientul", "petent", "petentul", "contestator", "contestatorul",
             "apelant", "apelantul", "intimat", "intimatul", "inculpat", "inculpatul", "învinuit",
-            "suspect", "condamnat", "persoana vătămată", "minor", "copil","copilului","copiilor","familia", "părintele", "soț", "soția",
+            "suspect", "condamnat","persoana", "persoana vătămată", "minor", "copil","copilului","copiilor","familia", "părintele", "soț", "soția",
             "moștenitor", "debitor", "creditor", "titular", "beneficiar", "pacient", "angajat",
-            "salariat", "proprietar", "cetățean", "persoană fizică", "fiul", "fiica", "rudă", "împotriva"
+            "salariat", "proprietar", "cetățean", "persoană fizică", "fiul", "fiica", "rudă", "dna", "dm", "doamna","doamnei", "domnul", "domnului",
+                    "împotriva"
     };
                 // Dicționar pentru a reține numele deja mascate
                 var maskedNames = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);

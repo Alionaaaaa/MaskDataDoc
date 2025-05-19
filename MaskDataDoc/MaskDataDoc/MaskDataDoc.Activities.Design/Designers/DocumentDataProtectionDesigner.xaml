@@ -90,21 +90,23 @@
               IsChecked="{Binding ModelItem.MaskAddress}" />
                 <CheckBox Content="Date of birth" 
               IsChecked="{Binding ModelItem.MaskDateOfBirth}" />
-                <CheckBox Content="Email" 
+                <CheckBox Content="IDNP"
+              IsChecked="{Binding ModelItem.MaskCNP}" />
+
+                <CheckBox Content="Email " 
               IsChecked="{Binding ModelItem.MaskEmail}" />
                 <CheckBox Content="Phone number"
               IsChecked="{Binding ModelItem.MaskPhone}" />
                 <CheckBox Content="Password"
               IsChecked="{Binding ModelItem.MaskPassword}" />
-                <!--<CheckBox Content="IBAN" 
-              IsChecked="{Binding ModelItem.MaskIBAN}" />-->
+                <CheckBox Content="IBAN" 
+              IsChecked="{Binding ModelItem.MaskIBAN}" />
                 
                 <CheckBox Content="Credit card"
               IsChecked="{Binding ModelItem.MaskCreditCard}" />
                 <CheckBox Content="License plate"
               IsChecked="{Binding ModelItem.MaskLicensePlate}" />
-                <CheckBox Content="IDNP"
-              IsChecked="{Binding ModelItem.MaskCNP}" />
+                
             </StackPanel>
 
         </Grid>
